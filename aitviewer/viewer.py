@@ -134,6 +134,7 @@ class Viewer(moderngl_window.WindowConfig):
             vsync=C.vsync,  # Set to False for some performance gains.
             samples=self.samples,
             cursor=True,
+            backend="egl"
         )
 
         self.window_size = size

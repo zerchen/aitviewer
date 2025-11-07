@@ -1833,13 +1833,13 @@ class Viewer(moderngl_window.WindowConfig):
             # We want to avoid overriding anything in an existing directory, so add suffixes.
             # We always do this, even if `ensure_no_overwrite` is False, because this might lead to unexpected videos
             # if data already exists in this directory.
-            # format_str = "{:0>4}"
-            # counter = 0
-            # candidate_dir = os.path.join(frame_dir, format_str.format(counter))
-            # while os.path.exists(candidate_dir):
-                # counter += 1
-                # candidate_dir = os.path.join(frame_dir, format_str.format(counter))
-            # frame_dir = os.path.abspath(candidate_dir)
+            format_str = "{:0>4}"
+            counter = 0
+            candidate_dir = os.path.join(frame_dir, format_str.format(counter))
+            while os.path.exists(candidate_dir):
+                counter += 1
+                candidate_dir = os.path.join(frame_dir, format_str.format(counter))
+            frame_dir = os.path.abspath(candidate_dir)
 
             # The frame dir does not yet exist (we've made sure of it).
             os.makedirs(frame_dir)
